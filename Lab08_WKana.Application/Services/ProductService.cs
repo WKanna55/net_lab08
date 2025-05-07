@@ -28,6 +28,12 @@ public class ProductService : IProductService
         return product.Adapt<ProductGetDto>();
     }
     
+    // Ejercicio 7: Obtener el promedio de precio de los productos
+    public async Task<decimal> GetAverageProductPriceAsync()
+    {
+        return await _unitOfWork.Products.GetAverageProductPriceAsync();
+    }
+    
     // Ejercicio 8: Obtener productos sin descripción
     public async Task<List<ProductGetDto>> GetProductsWithoutDescriptionAsync()
     {

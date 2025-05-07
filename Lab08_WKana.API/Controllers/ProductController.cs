@@ -38,6 +38,14 @@ public class ProductController : ControllerBase
         return Ok(product);
     }
     
+    // Ejercicio 7: Endpoint para obtener el promedio de precio de los productos
+    [HttpGet("ej07/average-price")]
+    public async Task<ActionResult> GetAverageProductPrice()
+    {
+        var averagePrice = await _productService.GetAverageProductPriceAsync();
+        return Ok(new { AveragePrice = averagePrice });
+    }
+    
     // Ejercicio 8: Endpoint para productos sin descripción
     [HttpGet("ej08/no-description")]
     public async Task<ActionResult> GetProductsWithoutDescription()

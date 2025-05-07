@@ -6,5 +6,6 @@ public interface IProductService
 {
     Task<List<ProductGetDto>> GetProductsByMinPriceAsync(decimal minPrice);
     Task<ProductGetDto?> GetMostExpensiveProductAsync();
+    Task<decimal> GetAverageProductPriceAsync();
     Task<List<ProductGetDto>> GetProductsWithoutDescriptionAsync();
 }

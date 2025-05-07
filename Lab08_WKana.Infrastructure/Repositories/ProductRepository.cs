@@ -31,6 +31,16 @@ public class ProductRepository: Repository<Product>, IProductRepository
             .FirstOrDefaultAsync();
     }
     
+    // Ejercicio 7: Obtener el promedio de precio de los productos
+    public async Task<decimal> GetAverageProductPriceAsync()
+    {
+        var averagePrice = await _context.Products
+            .Select(p => p.Price)
+            .AverageAsync();
+
+        return averagePrice;
+    }
+    
     // Ejercicio 8: Obtener productos sin descripción
     public async Task<List<Product>> GetProductsWithoutDescriptionAsync()
     {
